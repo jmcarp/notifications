@@ -1,0 +1,54 @@
+
+
+<html>
+  <br>
+  <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Open States</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+          {% if user.is_authenticated %}
+           <ul class="nav navbar-nav ">
+              <li><a href = "/subscribe">Home</a></li>
+              <li><a href = "/subscribe/profile">Profile</a></li>  
+              <li><a href = "/subscribe/profile/edit">Edit</a></li>  
+              <li><a href = "/subscribe/change-password">Change Password</a></li>  
+              <li><a href = "/subscribe/reset-password">Reset Password</a></li>    
+           </ul>
+           <ul class="nav navbar-nav navbar-right">
+              <li><a href="/subscribe/logout">Logout</a></li>
+            </ul>
+           {% else %}
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href = "/subscribe/login">Login</a></li>  
+              <li><a href="/subscribe/register">Register</a></li>
+               
+            </ul>
+
+            {% endif %}
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		{% block head %}
+		<title>Base</title>
+		{% endblock %}
+	</head>
+
+	<body>
+	{% block body %}
+	{% endblock %}
+	</body>
+
+
+
+</html>
